@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Umuterk Mağazası</title>
+
+<style>
+body {
+  margin:0;
+  font-family: Arial;
+  background: linear-gradient(135deg,#0f2027,#203a43,#2c5364);
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  height:100vh;
+  color:white;
+}
+
+/* ANA KUTU */
+.kutu{
+  width:95%;
+  max-width:550px;
+  background: rgba(255,255,255,0.07);
+  backdrop-filter: blur(15px);
+  border-radius:20px;
+  padding:25px;
+  box-shadow:0 0 40px rgba(0,0,0,0.4);
+  animation: fadeIn 1s ease;
+}
+
+@keyframes fadeIn{
+  from{opacity:0; transform: translateY(30px);}
+  to{opacity:1; transform: translateY(0);}
+}
+
+h1,h2{
+  text-align:center;
+}
+
+p{
+  text-align:center;
+  white-space:pre-line;
+}
+
+/* INPUT */
+input{
+  width:100%;
+  padding:14px;
+  border-radius:10px;
+  border:none;
+  margin-top:15px;
+  font-size:16px;
+}
+
+/* BUTONLAR */
+.butonlar{
+  margin-top:20px;
+  display:flex;
+  flex-direction:column;
+  gap:10px;
+}
+
+button{
+  padding:14px;
+  border:none;
+  border-radius:10px;
+  font-size:16px;
+  font-weight:bold;
+  cursor:pointer;
+  transition:0.3s;
+}
+
+/* RENK */
+.btn1{background:linear-gradient(45deg,#ff8a00,#ff3d00);}
+.btn2{background:linear-gradient(45deg,#00c6ff,#0072ff);}
+.btn3{background:linear-gradient(45deg,#00ff87,#60efff); color:black;}
+.geri{background:#444;}
+
+/* IŞIK */
+button:hover{
+  transform:scale(1.05);
+  box-shadow:0 0 20px white;
+}
+
+/* HATA */
+.hata{
+  color:red;
+  text-align:center;
+}
+
+/* GİZLE */
+.gizli{display:none;}
+
+/* LOADING */
+.loader{
+  text-align:center;
+  font-size:18px;
+  animation: blink 1s infinite;
+}
+
+@keyframes blink{
+  0%{opacity:0.3;}
+  50%{opacity:1;}
+  100%{opacity:0.3;}
+}
+</style>
+</head>
+
+<body>
+
+<div class="kutu">
+
+<!-- ANA -->
+<div id="ana">
+<h1>Umuterk Mağazasına Hoş Geldiniz!</h1>
+
+<p>Siparişinizi hızlı ve sorunsuz tamamlamak için lütfen “Nasıl Kullanılır?” bölümüne göz atın.
+Bilgilendirmeyi okuduktan sonra, itemsatış üzerinden aldığınız sipariş numarasını ilgili alana girerek devam edebilirsiniz.</p>
+
+<input id="no" placeholder="Sipariş numarası">
+<div id="hata" class="hata"></div>
+
+<div class="butonlar">
+<button class="btn1" onclick="goster('kullan')">📘 Nasıl Kullanılır</button>
+<button class="btn2" onclick="goster('calisir')">⚙️ Nasıl Çalışır</button>
+<button class="btn3" onclick="ilerle()">🚀 İlerle</button>
+</div>
+</div>
+
+<!-- NASIL KULLANILIR -->
+<div id="kullan" class="gizli">
+<h2>Nasıl Kullanılır</h2>
+<p>
+1️⃣ Giriş Bilgilerinin Hazırlanması 
+
+İlk adım olarak, 8 Ball Pool hesabınızın bağlı olduğu Facebook giriş bilgilerini (e-posta/telefon ve şifre) eksiksiz ve doğru şekilde hazırlayınız.
+
+⚠️ Giriş bilgilerinizin doğru olduğundan emin olunuz.
+
+ Gerekirse farklı bir sekmeden Facebook’a giriş yaparak kontrol ediniz.
+
+2️⃣ İki Faktörlü Kimlik Doğrulamayı Açma
+
+Facebook hesabınızda iki faktörlü kimlik doğrulama açık olmak zorundadır.
+
+Aşağıdaki yolu izleyiniz:
+
+Ayarlar → Güvenlik → İki Faktörlü Kimlik Doğrulama
+
+Doğrulama yöntemi olarak SMS veya WhatsApp seçiniz
+
+Gerekli bilgileri girerek iki faktörlü güvenliği aktif hale getiriniz
+
+3️⃣ Yedek Güvenlik Kodlarını Alma
+
+İki faktörlü kimlik doğrulama açıldıktan sonra, aynı menüye tekrar giriniz:
+
+Ayarlar → Güvenlik → İki Faktörlü Kimlik Doğrulama
+
+Bu bölümde karşınıza:
+
+**** **** formatında
+
+8 haneli, 5 adet tek kullanımlık güvenlik kodu çıkacaktır
+
+📌 Bu kodlardan en az 2 tanesini bize iletmeniz gerekmektedir.
+
+4️⃣ Kodların Neden Gerekli Olduğu
+
+İşlemler sıra sistemiyle yapılmaktadır.
+
+Sıranız hangi saat aralığında gelirse gelsin, işlemin gecikmemesi için bu kodlar gereklidir.
+
+Sizin aktif olmanızı beklememek
+
+Onay sürecinde zaman kaybı yaşamamak
+
+Sıranızın kaymamasını sağlamak
+
+amacıyla, bu tek kullanımlık kodlar ile anlık giriş yapılarak aktarım başlatılır.
+
+ℹ️ Bu kodların kalıcı bir güvenlik riski yoktur.
+
+ İşlem tamamlandıktan sonra kodları yenileyebilirsiniz.
+
+Kodlar yenilendiğinde, eski kodlar otomatik olarak geçersiz olur.
+
+5️⃣ İletilmesi Gereken Bilgiler
+
+İşlemin sorunsuz ilerleyebilmesi için tarafımıza:
+
+Facebook giriş bilgileri
+
+En az 2 adet tek kullanımlık güvenlik kodu
+
+eksiksiz şekilde iletilmelidir.
+
+⚠️ Bilgilerde herhangi bir hata olması durumunda, sıranız geldiğinde işlem yapılamaz ve bir sonraki müşteriye geçilmek zorunda kalınır.
+
+6️⃣ İşlem Süresi ve Takip
+
+Siparişiniz en geç 24 saat içinde işleme alınır
+
+İşlem süresince, tarafınıza canlı takip linki iletilir
+
+Aktarım tamamlandığında tarafınıza bilgi verilir
+</p>
+
+<button class="geri" onclick="geri()">⬅️ Geri</button>
+</div>
+
+<!-- NASIL ÇALIŞIR -->
+<div id="calisir" class="gizli">
+<h2>Nasıl Çalışır</h2>
+<p>
+Değerli Müşterilerimiz,
+Coin aktarım hizmetimizi, piyasada hile ile işlem yapan veya arkadaşlık maçı üzerinden riskli yöntemler kullanan kişilerle karıştırmamanızı önemle rica ederiz.
+
+Tüm işlemler, her müşteriye özel olarak ayrı bir bilgisayarda, güvenli ve test edilmiş web tabanlı yöntem ile gerçekleştirilir. Bu sistem, tamamen kontrollü olup ban riski içermez.
+
+Kısaca işlem süreci; sizin hesabınız ile coin yüklü hesaplarımız aynı maça denk getirilir ve maç size bırakılarak aktarım sağlanır.
+
+⏱ Teslimat Süreleri:
+• Coin siparişleri: Bugün verilen siparişler ertesi gün işleme alınır.
+• Coin dışındaki tüm ürünler: Aynı gün, ortalama 30 dakika içinde teslim edilir.
+</p>
+
+<button class="geri" onclick="geri()">⬅️ Geri</button>
+</div>
+
+<!-- LOADING -->
+<div id="loading" class="gizli">
+<h2 class="loader">⏳ Siparişiniz için sıra oluşturuluyor...</h2>
+</div>
+
+<!-- SON -->
+<div id="son" class="gizli">
+<h2>Bilgilendirme</h2>
+<p>
+Değerli Müşterimiz,
+Siparişiniz için sıra numaranız başarıyla oluşturulmuştur.
+
+İşleminizin sorunsuz ilerlemesi için, giriş ekranında bulunan “Nasıl Kullanılır?” butonuna tıklayarak gerekli bilgileri metinde belirtildiği şekilde hazırlayıp itemsatış sohbet ekranı üzerinden bizimle paylaşmanızı rica ederiz.
+
+Siparişiniz yarın sabah–öğlen saatleri arasında işleme alınacak olup, en geç gün sonuna kadar teslim edilecektir.
+</p>
+
+<button class="geri" onclick="geri()">⬅️ Ana Sayfa</button>
+</div>
+
+</div>
+
+<script>
+function gizle(){
+  ["ana","kullan","calisir","son","loading"].forEach(id=>{
+    document.getElementById(id).classList.add("gizli");
+  });
+}
+
+function goster(id){
+  gizle();
+  document.getElementById(id).classList.remove("gizli");
+}
+
+function geri(){
+  goster("ana");
+}
+
+function ilerle(){
+  let val = document.getElementById("no").value.trim();
+  let hata = document.getElementById("hata");
+
+  if(!/^[0-9]+$/.test(val)){
+    hata.textContent="Geçerli numara gir";
+    return;
+  }
+
+  hata.textContent="";
+  gizle();
+  document.getElementById("loading").classList.remove("gizli");
+
+  setTimeout(()=>{
+    goster("son");
+  },3000);
+}
+</script>
+
+</body>
+</html>
